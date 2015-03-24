@@ -13,28 +13,20 @@ function formulaires_configurer_logodefaut_saisies_dist() {
             )
         ),
         array(
-            'saisie' => 'fieldset',
+            'saisie' => 'input',
             'options' => array(
-                'nom' => 'saisie',
+                'nom' => 'logodefaut',
+                'type' => 'file',
+                'label' => _T('logodefaut:logodefaut_titre'),
                 'afficher_si' => '@logo_du_site@ == ""'
-            ),
-            'saisies' => array(
-                array(
-                    'saisie' => 'input',
-                    'options' => array(
-                        'nom' => 'logodefaut',
-                        'type' => 'file',
-                        'label' => _T('logodefaut:logodefaut_titre')
-                    )
-                ),
-                array(
-                    'saisie' => 'choisir_objets',
-                    'options' => array(
-                        'nom' => 'objet',
-                        'label' => _T('logodefaut:choisir_objet'),
-                        'explication' => _T('logodefaut:explication_choisir_objet')
-                    )
-                )
+            )
+        ),
+        array(
+            'saisie' => 'choisir_objets',
+            'options' => array(
+                'nom' => 'objet',
+                'label' => _T('logodefaut:choisir_objet'),
+                'explication' => _T('logodefaut:explication_choisir_objet')
             )
         )
     );
