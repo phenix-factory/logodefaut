@@ -16,6 +16,8 @@
 
 	<licence>GNU/GPL</licence>
 
+  <necessite nom="saisies" compatibilite="[2.0.0;]" />
+
 	<!--
 		Exemple de commandes
 		* dependances
