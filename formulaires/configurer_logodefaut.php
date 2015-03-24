@@ -16,7 +16,7 @@ function formulaires_configurer_logodefaut_saisies_dist() {
             'saisie' => 'fieldset',
             'options' => array(
                 'nom' => 'saisie',
-                'afficher_si' => '@logo_du_site@ != ""'
+                'afficher_si' => '@logo_du_site@ == ""'
             ),
             'saisies' => array(
                 array(
