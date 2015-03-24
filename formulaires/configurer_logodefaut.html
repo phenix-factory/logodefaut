@@ -8,11 +8,8 @@
 	<form method="post" action="#ENV{action}">
 	<div>
 		#ACTION_FORMULAIRE{#ENV{action}}
-
 		<ul>
-			[(#SAISIE{input, exemple,
-				label=<:logodefaut:cfg_exemple:>,
-				explication=<:logodefaut:cfg_exemple_explication:>})]
+      #GENERER_SAISIES{#ENV{_saisies}}
 		</ul>
 
 		<input type="hidden" name="_meta_casier" value="logodefaut" />
