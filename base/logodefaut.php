@@ -11,7 +11,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
  * @return array
  *     Déclarations d'interface pour le compilateur
  */
-function agendabe_declarer_tables_interfaces($interfaces) {
+function logodefaut_declarer_tables_interfaces($interfaces) {
 
     $logo_par_defaut = array(
         'LOGO_INSTITUTION',
