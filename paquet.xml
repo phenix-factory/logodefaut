@@ -12,4 +12,5 @@
 	<auteur lien='http://p.henix.be'>Phenix</auteur>
 	<licence>GNU/GPL</licence>
   <necessite nom="saisies" compatibilite="[2.0.0;]" />
+	<pipeline nom="declarer_tables_interfaces" inclure="base/logodefaut.php" />
 </paquet>
