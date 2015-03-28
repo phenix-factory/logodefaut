@@ -37,7 +37,12 @@ function formulaires_configurer_logodefaut_charger_dist() {
     // Contexte du formulaire.
     include_spip('inc/config');
     $config = lire_config('logodefaut');
+
+    if (isset($_FILES['logodefaut']))
+        logodefaut_uploader();
+
     if (empty($config))
         return array();
+
     return $config;
 }
