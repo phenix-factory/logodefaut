@@ -44,3 +44,28 @@ function logo_par_defaut($logo) {
     }
     return $logo;
 }
+
+/**
+ * Ajouter un logo nommé "logo_defaut.xxx" dans le dossier IMG
+ *
+ * @param mixed $file
+ * @access public
+ */
+function logodefaut_uploader() {
+
+   include_spip('action/editer_logo');
+    // Version SPIP 3.1 de cette fonction:
+   if (function_exists('logo_modifier'))
+        return logo_modifier('logo_', '', 'defaut', $_FILES['logodefaut']['tmp_name']);
+
+   include_spip('action/iconifier');
+   $ajouter_image = charger_fonction('spip_image_ajouter','action');
+
+    // Dans le cas d'un tableau, on présume que c'est un $_FILES et on passe directement
+    $err = $ajouter_image('logo_defaut'," ", $_FILES['logodefaut'], true);
+
+    if ($err)
+        return $err;
+    else
+        return true;
+}
