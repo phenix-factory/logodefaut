@@ -58,6 +58,7 @@ function logodefaut_uploader() {
    if (function_exists('logo_modifier'))
         return logo_modifier('logo_', '', 'defaut', $_FILES['logodefaut']['tmp_name']);
 
+   // Spip 3.0
    include_spip('action/iconifier');
    $ajouter_image = charger_fonction('spip_image_ajouter','action');
 
