@@ -1,6 +1,8 @@
 #INCLURE{fond=saisies/input, env}
 
-[(#REM)
-Il faut avoir une exetention dynamique ici...
-Une donc une balise #LOGO_DEFAUT
- ]
+[(#INCLURE{fond=prive/formulaires/inc-apercu-logo,
+logo=[(#LOGO_DEFAUT|extraire_attribut{src})],
+editable=oui,
+quoi=logo_,
+objet=defaut,
+id_objet=0})]
