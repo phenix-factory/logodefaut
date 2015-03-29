@@ -18,7 +18,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
  * @access public
  * @return mixed
  */
-function logo_par_defaut($logo) {
+function logo_par_defaut($logo='') {
     if (empty($logo)) {
 
         include_spip('inc/config');
