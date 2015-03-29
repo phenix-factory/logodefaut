@@ -34,19 +34,23 @@ function logo_par_defaut($logo='') {
             $chercher_logo = charger_fonction('chercher_logo', 'inc');
             $logo_par_defaut = $chercher_logo(0, 'logo_', 'defaut');
         }
-        var_dump($logo_par_defaut);
-        // Réduire le tableau, on a besoin que du path
-        $logo_par_defaut = $logo_par_defaut[0];
 
-        // Class par défaut des logo (Y a pas une constante pour ça ?)
-        $class = 'spip_logos';
-        // On ajoute cette class si on est dans l'espace privé (juste pour spip 3.1?)
-        if (test_espace_prive())
-            $class .= ' spip_logo';
+        // Si on ne trouve rien.. Bah on ne fait rien
+        if (!empty($logo_par_defaut)) {
 
-        $balise_img = charger_filtre('balise_img');
-        // Création du logo par défaut
-        $logo = $balise_img($logo_par_defaut, '', $class);
+            // Réduire le tableau, on a besoin que du path
+            $logo_par_defaut = $logo_par_defaut[0];
+
+            // Class par défaut des logo (Y a pas une constante pour ça ?)
+            $class = 'spip_logos';
+            // On ajoute cette class si on est dans l'espace privé (juste pour spip 3.1?)
+            if (test_espace_prive())
+                $class .= ' spip_logo';
+
+            $balise_img = charger_filtre('balise_img');
+            // Création du logo par défaut
+            $logo = $balise_img($logo_par_defaut, '', $class);
+        }
     }
     return $logo;
 }
@@ -59,14 +63,14 @@ function logo_par_defaut($logo='') {
  */
 function logodefaut_uploader() {
 
-   include_spip('action/editer_logo');
+    include_spip('action/editer_logo');
     // Version SPIP 3.1 de cette fonction:
-   if (function_exists('logo_modifier'))
+    if (function_exists('logo_modifier'))
         return logo_modifier('logo_', 0, 'defaut', $_FILES['logodefaut']['tmp_name']);
 
-   // Spip 3.0
-   include_spip('action/iconifier');
-   $ajouter_image = charger_fonction('spip_image_ajouter','action');
+    // Spip 3.0
+    include_spip('action/iconifier');
+    $ajouter_image = charger_fonction('spip_image_ajouter','action');
 
     // Dans le cas d'un tableau, on présume que c'est un $_FILES et on passe directement
     $err = $ajouter_image('logo_defaut',0, $_FILES['logodefaut'], true);
