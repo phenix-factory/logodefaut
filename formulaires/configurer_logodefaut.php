@@ -13,7 +13,7 @@ function formulaires_configurer_logodefaut_saisies_dist() {
             )
         ),
         array(
-            'saisie' => 'input',
+            'saisie' => 'logodefaut',
             'options' => array(
                 'nom' => 'logodefaut',
                 'type' => 'file',
