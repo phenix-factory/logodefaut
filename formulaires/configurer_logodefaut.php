@@ -41,6 +41,12 @@ function formulaires_configurer_logodefaut_charger_dist() {
     if (isset($_FILES['logodefaut']))
         logodefaut_uploader();
 
+    // Supprimer le logo au besoin
+    if (_request('supprimer_logo_') and empty($config['logo_du_site'])) {
+        $path = extraire_attribut(logo_par_defaut(), src);
+        spip_unlink($path);
+    }
+
     if (empty($config))
         return array();
 
