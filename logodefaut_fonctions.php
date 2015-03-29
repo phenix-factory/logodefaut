@@ -28,19 +28,25 @@ function logo_par_defaut($logo='') {
         if (isset($config['logo_du_site']) and $config['logo_du_site']) {
             $chercher_logo = charger_fonction('chercher_logo', 'inc');
             $logo_par_defaut = $chercher_logo(0, 'site');
-            $logo_par_defaut = $logo_par_defaut[0];
         }
+        // Sinon on cherche un éventuel fichier logo_defaut.xxx
+        else {
+            $chercher_logo = charger_fonction('chercher_logo', 'inc');
+            $logo_par_defaut = $chercher_logo(0, 'logo_', 'defaut');
+        }
+        var_dump($logo_par_defaut);
+        // Réduire le tableau, on a besoin que du path
+        $logo_par_defaut = $logo_par_defaut[0];
 
         // Class par défaut des logo (Y a pas une constante pour ça ?)
         $class = 'spip_logos';
-
-        $balise_img = charger_filtre('balise_img');
         // On ajoute cette class si on est dans l'espace privé (juste pour spip 3.1?)
         if (test_espace_prive())
             $class .= ' spip_logo';
 
+        $balise_img = charger_filtre('balise_img');
         // Création du logo par défaut
-        $logo = $balise_img(find_in_path($logo_par_defaut), '', $class);
+        $logo = $balise_img($logo_par_defaut, '', $class);
     }
     return $logo;
 }
