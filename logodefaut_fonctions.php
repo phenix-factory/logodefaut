@@ -56,17 +56,25 @@ function logodefaut_uploader() {
    include_spip('action/editer_logo');
     // Version SPIP 3.1 de cette fonction:
    if (function_exists('logo_modifier'))
-        return logo_modifier('logo_', '', 'defaut', $_FILES['logodefaut']['tmp_name']);
+        return logo_modifier('logo_', 0, 'defaut', $_FILES['logodefaut']['tmp_name']);
 
    // Spip 3.0
    include_spip('action/iconifier');
    $ajouter_image = charger_fonction('spip_image_ajouter','action');
 
     // Dans le cas d'un tableau, on présume que c'est un $_FILES et on passe directement
-    $err = $ajouter_image('logo_defaut'," ", $_FILES['logodefaut'], true);
+    $err = $ajouter_image('logo_defaut',0, $_FILES['logodefaut'], true);
 
     if ($err)
         return $err;
     else
         return true;
+}
+
+function balise_LOGO_DEFAUT_dist($p) {
+
+    $p->code = "logo_par_defaut()";
+    $p->interdire_scripts = false;
+
+    return $p;
 }
