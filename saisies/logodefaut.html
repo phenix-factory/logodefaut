@@ -1,8 +1,11 @@
 #INCLURE{fond=saisies/input, env}
 
-[(#INCLURE{fond=prive/formulaires/inc-apercu-logo,
-logo=[(#LOGO_DEFAUT|extraire_attribut{src})],
-editable=oui,
-quoi=logo_,
-objet=defaut,
-id_objet=0})]
+[(#REM) Afficher le logo par défaut s'il y en a un ]
+[(#LOGO_DEFAUT|oui|et{#CONFIG{logodefaut/logo_du_site}|non})
+  [(#INCLURE{fond=prive/formulaires/inc-apercu-logo,
+  logo=[(#LOGO_DEFAUT|extraire_attribut{src})],
+  editable=oui,
+  quoi=logo_,
+  objet=defaut,
+  id_objet=0})]
+]
