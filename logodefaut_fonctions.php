@@ -55,6 +55,21 @@ function logo_par_defaut($logo='') {
     return $logo;
 }
 
+function filtre_exception_logo_par_defaut_dist($balise_logo) {
+
+    // Si on trouve la class logo_defaut, on bloque
+    $extraire_attribut = charger_filtre('extraire_attribut');
+    $class = extraire_attribut($balise_logo, 'class');
+
+    $class = explode(' ', $class);
+
+    if (in_array(_CLASS_LOGO_PAR_DEFAUT, $class))
+        return '';
+
+    return $balise_logo;
+}
+
+
 /**
  * Ajouter un logo nommé "logo_defaut.xxx" dans le dossier IMG
  *
