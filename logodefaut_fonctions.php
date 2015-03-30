@@ -42,7 +42,7 @@ function logo_par_defaut($logo='') {
             $logo_par_defaut = $logo_par_defaut[0];
 
             // Class par défaut des logo (Y a pas une constante pour ça ?)
-            $class = 'spip_logos';
+            $class = 'spip_logos '._CLASS_LOGO_PAR_DEFAUT;
             // On ajoute cette class si on est dans l'espace privé (juste pour spip 3.1?)
             if (test_espace_prive())
                 $class .= ' spip_logo';
